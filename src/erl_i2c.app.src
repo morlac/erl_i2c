@@ -1,0 +1,12 @@
+{application, erl_i2c,
+ [
+  {description, ""},
+  {vsn, "1"},
+  {registered, []},
+  {applications, [
+                  kernel,
+                  stdlib
+                 ]},
+  {mod, { erl_i2c_app, []}},
+  {env, []}
+ ]}.

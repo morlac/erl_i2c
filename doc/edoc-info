@@ -1,0 +1,3 @@
+{application,erl_i2c}.
+{packages,[]}.
+{modules,[erl_i2c,erl_i2c_app,erl_i2c_sup]}.

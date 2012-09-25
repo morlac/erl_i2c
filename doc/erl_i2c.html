@@ -1,0 +1,277 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Module erl_i2c</title>
+<link rel="stylesheet" type="text/css" href="stylesheet.css" title="EDoc">
+</head>
+<body bgcolor="white">
+<div class="navbar"><a name="#navbar_top"></a><table width="100%" border="0" cellspacing="0" cellpadding="2" summary="navigation bar"><tr><td><a href="overview-summary.html" target="overviewFrame">Overview</a></td><td><a href="http://www.erlang.org/"><img src="erlang.png" align="right" border="0" alt="erlang logo"></a></td></tr></table></div>
+<hr>
+
+<h1>Module erl_i2c</h1>
+<ul class="index"><li><a href="#description">Description</a></li><li><a href="#index">Function Index</a></li><li><a href="#functions">Function Details</a></li></ul>:
+   erl_i2c interfaces i2c-systems via an Erlang C-Node (erl_i2c_cnode).
+<p>Copyright ©  : 2011 by Christian Adams &lt;morlac78@googlemail.com&gt;</p>
+
+<p><b>Behaviours:</b> <a href="gen_server.html"><tt>gen_server</tt></a>.</p>
+<p><b>Authors:</b> : adams.</p>
+
+<h2><a name="description">Description</a></h2>:
+   erl_i2c interfaces i2c-systems via an Erlang C-Node (erl_i2c_cnode).
+   Created : 12.09.2012
+<h2><a name="index">Function Index</a></h2>
+<table width="100%" border="1" cellspacing="0" cellpadding="2" summary="function index"><tr><td valign="top"><a href="#bus_info-0">bus_info/0</a></td><td>
+  .</td></tr>
+<tr><td valign="top"><a href="#bus_info-1">bus_info/1</a></td><td>
+  .</td></tr>
+<tr><td valign="top"><a href="#close_bus-1">close_bus/1</a></td><td>
+  .</td></tr>
+<tr><td valign="top"><a href="#cnode_started-2">cnode_started/2</a></td><td>
+  .</td></tr>
+<tr><td valign="top"><a href="#code_change-3">code_change/3</a></td><td></td></tr>
+<tr><td valign="top"><a href="#get_address-0">get_address/0</a></td><td>
+  .</td></tr>
+<tr><td valign="top"><a href="#get_address-1">get_address/1</a></td><td>
+  .</td></tr>
+<tr><td valign="top"><a href="#get_bus-0">get_bus/0</a></td><td>
+  .</td></tr>
+<tr><td valign="top"><a href="#get_state-0">get_state/0</a></td><td>
+  .</td></tr>
+<tr><td valign="top"><a href="#handle_call-3">handle_call/3</a></td><td>
+  .</td></tr>
+<tr><td valign="top"><a href="#handle_cast-2">handle_cast/2</a></td><td>
+  .</td></tr>
+<tr><td valign="top"><a href="#handle_info-2">handle_info/2</a></td><td></td></tr>
+<tr><td valign="top"><a href="#init-1">init/1</a></td><td></td></tr>
+<tr><td valign="top"><a href="#open_bus-1">open_bus/1</a></td><td>
+  .</td></tr>
+<tr><td valign="top"><a href="#read_byte-0">read_byte/0</a></td><td>
+  .</td></tr>
+<tr><td valign="top"><a href="#read_byte-1">read_byte/1</a></td><td>
+  .</td></tr>
+<tr><td valign="top"><a href="#read_byte-2">read_byte/2</a></td><td>
+  .</td></tr>
+<tr><td valign="top"><a href="#read_byte-3">read_byte/3</a></td><td>
+  .</td></tr>
+<tr><td valign="top"><a href="#receive_cnode_response-0">receive_cnode_response/0*</a></td><td>
+  .</td></tr>
+<tr><td valign="top"><a href="#receive_spawned_cnode-1">receive_spawned_cnode/1*</a></td><td>
+  .</td></tr>
+<tr><td valign="top"><a href="#send_cnode-2">send_cnode/2*</a></td><td>.</td></tr>
+<tr><td valign="top"><a href="#set_address-1">set_address/1</a></td><td>
+  .</td></tr>
+<tr><td valign="top"><a href="#set_address-2">set_address/2</a></td><td>
+  .</td></tr>
+<tr><td valign="top"><a href="#set_bus-1">set_bus/1</a></td><td>
+  .</td></tr>
+<tr><td valign="top"><a href="#spawn_cnode-0">spawn_cnode/0</a></td><td>
+  .</td></tr>
+<tr><td valign="top"><a href="#start_link-0">start_link/0</a></td><td></td></tr>
+<tr><td valign="top"><a href="#stop_link-0">stop_link/0</a></td><td>
+  .</td></tr>
+<tr><td valign="top"><a href="#terminate-2">terminate/2</a></td><td></td></tr>
+<tr><td valign="top"><a href="#write_byte-1">write_byte/1</a></td><td>
+  .</td></tr>
+<tr><td valign="top"><a href="#write_byte-2">write_byte/2</a></td><td>
+  .</td></tr>
+<tr><td valign="top"><a href="#write_byte-3">write_byte/3</a></td><td>
+  .</td></tr>
+<tr><td valign="top"><a href="#write_byte-4">write_byte/4</a></td><td>
+  .</td></tr>
+</table>
+
+<h2><a name="functions">Function Details</a></h2>
+
+<h3 class="function"><a name="bus_info-0">bus_info/0</a></h3>
+<div class="spec">
+<p><tt>bus_info() -&gt; any()</tt></p>
+</div><p>
+  .</p>
+
+<h3 class="function"><a name="bus_info-1">bus_info/1</a></h3>
+<div class="spec">
+<p><tt>bus_info(Bus_Number) -&gt; any()</tt></p>
+</div><p>
+  .</p>
+
+<h3 class="function"><a name="close_bus-1">close_bus/1</a></h3>
+<div class="spec">
+<p><tt>close_bus(Bus_Number) -&gt; any()</tt></p>
+</div><p>
+  .</p>
+
+<h3 class="function"><a name="cnode_started-2">cnode_started/2</a></h3>
+<div class="spec">
+<p><tt>cnode_started(Erlang_Port, NodeName) -&gt; any()</tt></p>
+</div><p>
+  .</p>
+
+<h3 class="function"><a name="code_change-3">code_change/3</a></h3>
+<div class="spec">
+<p><tt>code_change(OldVsn, State, Extra) -&gt; any()</tt></p>
+</div>
+
+<h3 class="function"><a name="get_address-0">get_address/0</a></h3>
+<div class="spec">
+<p><tt>get_address() -&gt; any()</tt></p>
+</div><p>
+  .</p>
+
+<h3 class="function"><a name="get_address-1">get_address/1</a></h3>
+<div class="spec">
+<p><tt>get_address(Bus_Number) -&gt; any()</tt></p>
+</div><p>
+  .</p>
+
+<h3 class="function"><a name="get_bus-0">get_bus/0</a></h3>
+<div class="spec">
+<p><tt>get_bus() -&gt; any()</tt></p>
+</div><p>
+  .</p>
+
+<h3 class="function"><a name="get_state-0">get_state/0</a></h3>
+<div class="spec">
+<p><tt>get_state() -&gt; any()</tt></p>
+</div><p>
+  .</p>
+
+<h3 class="function"><a name="handle_call-3">handle_call/3</a></h3>
+<div class="spec">
+<p><tt>handle_call(Request, From, State) -&gt; any()</tt></p>
+</div><p>
+  .</p>
+
+<h3 class="function"><a name="handle_cast-2">handle_cast/2</a></h3>
+<div class="spec">
+<p><tt>handle_cast(Msg, State) -&gt; any()</tt></p>
+</div><p>
+  .</p>
+
+<h3 class="function"><a name="handle_info-2">handle_info/2</a></h3>
+<div class="spec">
+<p><tt>handle_info(Info, State) -&gt; any()</tt></p>
+</div>
+
+<h3 class="function"><a name="init-1">init/1</a></h3>
+<div class="spec">
+<p><tt>init(X1) -&gt; any()</tt></p>
+</div>
+
+<h3 class="function"><a name="open_bus-1">open_bus/1</a></h3>
+<div class="spec">
+<p><tt>open_bus(Bus_Number) -&gt; any()</tt></p>
+</div><p>
+  .</p>
+
+<h3 class="function"><a name="read_byte-0">read_byte/0</a></h3>
+<div class="spec">
+<p><tt>read_byte() -&gt; any()</tt></p>
+</div><p>
+  .</p>
+
+<h3 class="function"><a name="read_byte-1">read_byte/1</a></h3>
+<div class="spec">
+<p><tt>read_byte(Device_Register) -&gt; any()</tt></p>
+</div><p>
+  .</p>
+
+<h3 class="function"><a name="read_byte-2">read_byte/2</a></h3>
+<div class="spec">
+<p><tt>read_byte(Device_Address, Device_Register) -&gt; any()</tt></p>
+</div><p>
+  .</p>
+
+<h3 class="function"><a name="read_byte-3">read_byte/3</a></h3>
+<div class="spec">
+<p><tt>read_byte(Bus_Number, Device_Address, Device_Register) -&gt; any()</tt></p>
+</div><p>
+  .</p>
+
+<h3 class="function"><a name="receive_cnode_response-0">receive_cnode_response/0 *</a></h3>
+<div class="spec">
+<p><tt>receive_cnode_response() -&gt; any()</tt><br></p>
+</div><p>
+  .</p>
+
+<h3 class="function"><a name="receive_spawned_cnode-1">receive_spawned_cnode/1 *</a></h3>
+<div class="spec">
+<p><tt>receive_spawned_cnode(Erlang_Port::port()) -&gt; ok</tt><br></p>
+</div><p>
+  .</p>
+
+<h3 class="function"><a name="send_cnode-2">send_cnode/2 *</a></h3>
+<div class="spec">
+<p><tt>send_cnode(Nodename::atom(), Message::term()) -&gt; any()</tt><br></p>
+</div><p>
+ </p>
+
+<h3 class="function"><a name="set_address-1">set_address/1</a></h3>
+<div class="spec">
+<p><tt>set_address(Device_Address) -&gt; any()</tt></p>
+</div><p>
+  .</p>
+
+<h3 class="function"><a name="set_address-2">set_address/2</a></h3>
+<div class="spec">
+<p><tt>set_address(Bus_Number, Device_Address) -&gt; any()</tt></p>
+</div><p>
+  .</p>
+
+<h3 class="function"><a name="set_bus-1">set_bus/1</a></h3>
+<div class="spec">
+<p><tt>set_bus(Bus_Number) -&gt; any()</tt></p>
+</div><p>
+  .</p>
+
+<h3 class="function"><a name="spawn_cnode-0">spawn_cnode/0</a></h3>
+<div class="spec">
+<p><tt>spawn_cnode() -&gt; ok</tt><br></p>
+</div><p>
+  .</p>
+
+<h3 class="function"><a name="start_link-0">start_link/0</a></h3>
+<div class="spec">
+<p><tt>start_link() -&gt; any()</tt></p>
+</div>
+
+<h3 class="function"><a name="stop_link-0">stop_link/0</a></h3>
+<div class="spec">
+<p><tt>stop_link() -&gt; any()</tt></p>
+</div><p>
+  .</p>
+
+<h3 class="function"><a name="terminate-2">terminate/2</a></h3>
+<div class="spec">
+<p><tt>terminate(Reason, State) -&gt; any()</tt></p>
+</div>
+
+<h3 class="function"><a name="write_byte-1">write_byte/1</a></h3>
+<div class="spec">
+<p><tt>write_byte(Device_Data) -&gt; any()</tt></p>
+</div><p>
+  .</p>
+
+<h3 class="function"><a name="write_byte-2">write_byte/2</a></h3>
+<div class="spec">
+<p><tt>write_byte(Device_Register, Device_Data) -&gt; any()</tt></p>
+</div><p>
+  .</p>
+
+<h3 class="function"><a name="write_byte-3">write_byte/3</a></h3>
+<div class="spec">
+<p><tt>write_byte(Device_Address, Device_Register, Device_Data) -&gt; any()</tt></p>
+</div><p>
+  .</p>
+
+<h3 class="function"><a name="write_byte-4">write_byte/4</a></h3>
+<div class="spec">
+<p><tt>write_byte(Bus_Number, Device_Address, Device_Register, Device_Data) -&gt; any()</tt></p>
+</div><p>
+  .</p>
+<hr>
+
+<div class="navbar"><a name="#navbar_bottom"></a><table width="100%" border="0" cellspacing="0" cellpadding="2" summary="navigation bar"><tr><td><a href="overview-summary.html" target="overviewFrame">Overview</a></td><td><a href="http://www.erlang.org/"><img src="erlang.png" align="right" border="0" alt="erlang logo"></a></td></tr></table></div>
+<p><i>Generated by EDoc, Sep 25 2012, 16:32:25.</i></p>
+</body>
+</html>
