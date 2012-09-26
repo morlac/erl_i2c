@@ -28,7 +28,7 @@
 				 set_address/2, set_address/1,
 				 get_address/1, get_address/0,
 				 write_byte/4, write_byte/3, write_byte/2, write_byte/1,
-				 read_byte/3, read_byte/2, read_byte/1, read_byte/0,
+				 read_byte/4, read_byte/3, read_byte/2, read_byte/1,
 				 start_link/0, stop_link/0]).
 
 %% gen_server callbacks
@@ -187,34 +187,34 @@ write_byte(Device_Data) when
 %% @doc
 %% .
 %% @end
-read_byte(Bus_Number, Device_Address, Device_Register)  ->
+read_byte(Bus_Number, Device_Address, Device_Register, Data_Length)  ->
 	gen_server:call(
 		?SERVER,
-		{read_byte, Bus_Number, Device_Address, Device_Register}).
+		{read_byte, Bus_Number, Device_Address, Device_Register, Data_Length}).
 
 %% @doc
 %% .
 %% @end
-read_byte(Device_Address, Device_Register) ->
+read_byte(Device_Address, Device_Register, Data_Length) ->
 	gen_server:call(
 		?SERVER,
-		{read_byte, Device_Address, Device_Register}).
+		{read_byte, Device_Address, Device_Register, Data_Length}).
 
 %% @doc
 %% .
 %% @end
-read_byte(Device_Register) ->
+read_byte(Device_Register, Data_Length) ->
 	gen_server:call(
 		?SERVER,
-		{read_byte, Device_Register}).
+		{read_byte, Device_Register, Data_Length}).
 
 %% @doc
 %% .
 %% @end
-read_byte() ->
+read_byte(Data_Length) ->
 	gen_server:call(
 		?SERVER,
-		{read_byte}).
+		{read_byte, Data_Length}).
 
 %% @doc
 %% .
